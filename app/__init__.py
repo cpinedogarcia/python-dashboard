@@ -1,28 +1,18 @@
 from flask import Flask
-from datetime import datetime
-import re
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
+# Configurations
+app.config.from_object('config')
 
-@app.route("/")
-def home():
-    return "Hello, Flask!"
+# Define the database object which is imported
+# by modules and controllers
+db = SQLAlchemy(app)
 
+from app.models import Item
+# Build the database:
+# This will create the database file using SQLAlchemy
+db.create_all()
 
-@app.route("/hello/<name>")
-def hello_there(name):
-    now = datetime.now()
-    formatted_now = now.strftime("%A, %d %B, %Y at %X")
-
-    # Filter the name argument to letters only using regular expressions. URL arguments
-    # can contain arbitrary text, so we restrict to safe characters only.
-    match_object = re.match("[a-zA-Z]+", name)
-
-    if match_object:
-        clean_name = match_object.group(0)
-    else:
-        clean_name = "Friend"
-
-    content = "Hello there, " + clean_name + "! It's " + formatted_now
-    return content
+from app import dashboard, hello

@@ -1,0 +1,9 @@
+{
+    "python.pythonPath": "c:\\Users\\zeron\\OneDrive\\Documentos\\GitHub\\python-dashboard\\.venv\\Scripts\\python.exe",
+    "files.associations": {
+        "jinja-html": "html"
+    },
+    "emmet.includeLanguages": {
+        "jinja-html": "html"
+    }
+}
