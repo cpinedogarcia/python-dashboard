@@ -10,18 +10,19 @@ def home():
     return render_template("index.html", items=items)
 
 
-@app.route("/create", methods=["POST"])
+@app.route("/create", methods=["GET", "POST"])
 def create():
     if request.form:
         try:
             item = Item(title=request.form.get("title"), desc=request.form.get(
-                "desc"), icon=request.form.get("icon"), url=request.form.get("url"))
+                "desc"), icon="img/" + request.form.get("icon"), url=request.form.get("url"))
             db.session.add(item)
             db.session.commit()
         except Exception as e:
             print("Filed to save item")
             print(e)
-    return redirect("/")
+        return redirect("/")
+    return render_template("add.html")
 
 
 @app.route("/init", methods=["GET"])

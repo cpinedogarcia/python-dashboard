@@ -11,6 +11,7 @@ app.config.from_object('config')
 db = SQLAlchemy(app)
 
 from app.models import Item
+
 # Build the database:
 # This will create the database file using SQLAlchemy
 db.create_all()

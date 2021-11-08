@@ -1,7 +1,32 @@
 {% extends "base.html" %}
 {% block title %}Add item{% endblock %}
 {% block content %}
-<div class="container">
-  <!-- Content here -->
+<div class="container-fluid">
+  <br />
+  <!-- <div class="row">
+    <div class="col align-self-center"> -->
+  <div class="card text-white bg-dark mx-auto" style="max-width: 540px; --bs-bg-opacity: .8; padding: 10px;">
+    <form method="post" action="./create">
+      <div class="mb-3">
+        <label for="itemtitle" class="form-label">Title</label>
+        <input type="text" class="form-control" id="itemtitle" name="title">
+      </div>
+      <div class="mb-3">
+        <label for="tadescription" class="form-label">Description</label>
+        <textarea class="form-control" id="tadescription" rows="2" name="desc"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="itemurl" class="form-label">Url</label>
+        <input type="url" class="form-control" id="itemurl" name="url">
+      </div>
+      <div class="mb-3">
+        <label for="itemicon" class="form-label">Icon</label>
+        <input type="text" class="form-control" id="itemicon" name="icon">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  <!-- </div>
+  </div> -->
 </div>
 {% endblock %}

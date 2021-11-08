@@ -8,16 +8,17 @@ content %}
   <div class="row row-cols-1 row-cols-md-2 g-4">
     {% for item in items %}
     <div class="col">
-      <div class="card text-white bg-dark mb-3" style="max-width: 540px;">
-        <a href="{{item.url}}" target="_blank" rel="noreferer">
+      <div class="card text-white bg-dark mb-3" style="max-width: 540px; --bs-bg-opacity: .8;">
+        <!-- backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); -->
+        <a href="{{item.url}}" target="_blank" rel="noreferrer" class="text-white text-decoration-none">
           <div class="row g-0">
             <div class="col-md-2 text-center">
-              <img src="{{ url_for('static', filename='img/code.png') }}" class="img-fluid rounded-start"
-                alt="{{ url_for('static', filename=item.icon) }}" style="padding: 10px;" />
+              <img src="{{ url_for('static', filename=item.icon) }}" class="img-fluid rounded-start"
+                alt="{{ url_for('static', filename='img/code.png') }}" style="padding: 10px;" />
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5>{{item.title}}</h5>
+                <h5 class="card-title">{{item.title}}</h5>
                 <p class="card-text">{{item.desc}}</p>
               </div>
             </div>
