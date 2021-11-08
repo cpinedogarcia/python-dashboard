@@ -25,6 +25,19 @@ def create():
     return render_template("add.html")
 
 
+@app.route("/delete", methods=["GET", "POST"])
+def delete():
+    if request.form:
+        title = request.form.get("title")
+        item = Item.query.filter_by(title=title).first()
+        db.session.delete(item)
+        db.session.commit()
+        return redirect("/")
+    else:
+        items = Item.query.all()
+    return render_template("remove.html", items=items)
+
+
 @app.route("/init", methods=["GET"])
 def init():
     for i in range(5):
