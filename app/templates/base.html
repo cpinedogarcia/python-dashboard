@@ -13,8 +13,9 @@
   <style>
     body {
       background-image: url("{{ url_for('static', filename='img/w1jgs6ypul871.webp') }}");
-      background-size: 100%;
+      background-repeat: no-repeat;
       background-attachment: fixed;
+      background-position: top center;
     }
   </style>
 </head>
@@ -24,7 +25,7 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
         <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt=""
-          style="border-radius: 50%; max-width: 70px; padding: 10px;" />
+          style="border-radius: 50%; max-width: 50px;" />
         Akatzin's Dashboard
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
