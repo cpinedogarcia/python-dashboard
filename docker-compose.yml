@@ -2,9 +2,14 @@ version: '3.4'
 
 services:
   pythondashboard:
+    container_name: pythondashboard
     image: pythondashboard
     build:
       context: .
       dockerfile: ./Dockerfile
     ports:
       - 5000:5000
+    volumes:
+      - db:/app/db
+volumes:
+  db:
